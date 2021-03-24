@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Ryancco\HasUuidRouteKey\HasUuidRouteKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Reservation extends Model
+class Event extends Model
 {
     use HasFactory, HasUuidRouteKey;
 

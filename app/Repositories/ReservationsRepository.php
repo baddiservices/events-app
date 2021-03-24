@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Reservation;
+use App\Models\Event;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Torann\LaravelRepository\Repositories\AbstractRepository;
@@ -14,7 +14,7 @@ class ReservationsRepository extends AbstractRepository
      *
      * @return string
      */
-    protected $model = \App\Models\Reservation::class;
+    protected $model = \App\Models\Event::class;
 
     /**
      * Fetch all reservations with relationships
@@ -23,7 +23,7 @@ class ReservationsRepository extends AbstractRepository
      */
     public function allWithRelationships() : Collection
     {
-        return Reservation::with(['user', 'room'])->where('user_id', Auth::id())->get();
+        return Event::with(['user', 'room'])->where('user_id', Auth::id())->get();
     }
 
     /**
@@ -37,7 +37,7 @@ class ReservationsRepository extends AbstractRepository
         $startYear = date('Y-m-d H:i:s', strtotime('January 1st'));
         $endYear = date('Y-m-d H:i:s',strtotime('last day of this month'));;
 
-        return Reservation::with('room')
+        return Event::with('room')
                     ->whereBetween('start_date', [$startYear, $endYear])
                     ->whereBetween('end_date', [$startYear, $endYear])
                     ->get();
@@ -57,7 +57,7 @@ class ReservationsRepository extends AbstractRepository
         $startDate = date('Y-m-d H:i:s', strtotime($startDate));
         $endDate = date('Y-m-d H:i:s', strtotime($endDate));
 
-        return Reservation::where('room_id', $roomId)
+        return Event::where('room_id', $roomId)
                     ->whereBetween('start_date', [$startDate, $endDate])
                     ->whereBetween('end_date', [$startDate, $endDate])
                     ->exists();
