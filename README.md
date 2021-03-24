@@ -37,6 +37,12 @@ Run the database migrations (**Set the [database connection](https://laravel.com
 php artisan migrate
 ```
 
+Dump demo data to database
+
+``` bash
+php artisan db:seed
+```
+
 Then start your server:
 
 ``` bash
