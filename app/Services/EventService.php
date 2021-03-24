@@ -101,14 +101,14 @@ class EventService
             $data, 
             [
                 'name'          =>  'required|string',
-                'room_id'       =>  'required|integer|exists:groups,id',
+                'group_id'       =>  'required|integer|exists:groups,id',
                 'start_date'    =>  'required',
                 'end_date'      =>  'required',
                 'description'   =>  'nullable|string',
             ],
             [
                 'name.required'     =>  __('messages.reservation_name'),
-                'room_id.required'  =>  __('messages.reservation_room_id'),
+                'group_id.required'  =>  __('messages.reservation_room_id'),
             ]
         );
 
@@ -117,7 +117,7 @@ class EventService
             throw new InvalidArgumentException($validator->errors()->first(), 400);
 
         // Check if already booked
-        if($this->reservationRepository->checkIfAlreadyBooked($data['room_id'], $data['start_date'], $data['end_date'])){
+        if($this->reservationRepository->checkIfAlreadyBooked($data['group_id'], $data['start_date'], $data['end_date'])){
             throw new Exception(__('messages.room_already_booked') . $data['start_date'] . ' : ' . $data['end_date'], 400);
         }
 

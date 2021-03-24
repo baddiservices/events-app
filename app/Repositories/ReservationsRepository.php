@@ -57,7 +57,7 @@ class ReservationsRepository extends AbstractRepository
         $startDate = date('Y-m-d H:i:s', strtotime($startDate));
         $endDate = date('Y-m-d H:i:s', strtotime($endDate));
 
-        return Event::where('room_id', $roomId)
+        return Event::where('group_id', $roomId)
                     ->whereBetween('start_date', [$startDate, $endDate])
                     ->whereBetween('end_date', [$startDate, $endDate])
                     ->exists();

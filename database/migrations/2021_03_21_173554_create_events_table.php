@@ -17,19 +17,21 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->uuid('uuid');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('group_id');
             $table->string('name');
             $table->dateTime('start_date')->nullable(false);
             $table->dateTime('end_date')->nullable(false);
             $table->text('description')->nullable();
-            $table->string('address')->nullable();
             $table->boolean('remotely')->default(false);
             $table->decimal('longitude', 9, 6)->nullable();
             $table->decimal('latitude', 8, 6)->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreign('room_id')->references('id')->on('groups')->cascadeOnDelete();
+            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnDelete();
         });
     }
 

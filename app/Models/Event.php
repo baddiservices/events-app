@@ -20,7 +20,7 @@ class Event extends Model
         'start_date',
         'end_date',
         'description',
-        'room_id',
+        'group_id',
         'user_id',
     ];
 
@@ -31,7 +31,7 @@ class Event extends Model
      */
     protected $casts = [
         'user_id'       => 'integer',
-        'room_id'       => 'integer',
+        'group_id'       => 'integer',
         'start_date'    => 'datetime',
         'end_date'      => 'datetime',
     ];

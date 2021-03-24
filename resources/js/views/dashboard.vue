@@ -65,13 +65,13 @@
                                                 id="reservation-group-group"
                                                 label="Chambre:"
                                                 label-for="reservation-group">
-                                                <b-form-select id="reservation-group" v-model="reservation.room_id" :options="roomsSelectOptions" required></b-form-select>
+                                                <b-form-select id="reservation-group" v-model="reservation.group_id" :options="roomsSelectOptions" required></b-form-select>
                                                 </b-form-input>
                                             </b-form-group>
                                             <b-form-group
                                                 id="reservation-date-group"
                                                 label="Date de début et fin:"
-                                                label-for="reservation-date" v-show="reservation.room_id">
+                                                label-for="reservation-date" v-show="reservation.group_id">
                                                 <date-range-picker
                                                     id="reservation-date"
                                                     ref="picker"
@@ -257,7 +257,7 @@ export default{
             return this.user.email !== '' && this.user.name !== '' && this.user.password == this.confirmPassword
         },
         validReservationForm(){
-            return this.reservation.name !== '' && this.reservation.room_id && this.dateRange.startDate && this.dateRange.endDate
+            return this.reservation.name !== '' && this.reservation.group_id && this.dateRange.startDate && this.dateRange.endDate
         },
         roomsSelectOptions(){
             let roomsList = [
@@ -452,7 +452,7 @@ export default{
                     this.reservation = {
                         name: '',
                         description: '',
-                        room_id: null,
+                        group_id: null,
                         start_date: moment().format('DD/MM/yyyy HH:mm'),
                         end_date: null,
                     }
@@ -629,7 +629,7 @@ export default{
             reservation: {
                 name: '',
                 description: '',
-                room_id: null,
+                group_id: null,
                 start_date: moment().format('DD/MM/yyyy HH:mm'),
                 end_date: null,
             },
