@@ -5,7 +5,7 @@ import Vue from 'vue'
 import { BootstrapVue, BContainer, BRow, BCol, BLink } from 'bootstrap-vue'
 import router from './router'
 import store from './store'
-import { api } from './api'
+import { api } from './services/API'
 
 // Import CSS files
 import 'bootstrap/dist/css/bootstrap.css'

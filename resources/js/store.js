@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getUser } from './auth'
-import { api } from './api'
+import { getUser } from './services/Auth'
+import { api } from './services/API'
 
 // Use Vuex
 Vue.use(Vuex)

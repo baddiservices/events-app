@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { isUserLoggedIn } from './auth'
+import { isUserLoggedIn } from './services/Auth'
 import SecureLS from 'secure-ls'
-import { api } from './api'
+import { api } from './services/API'
 
 // Use router
 Vue.use(VueRouter)

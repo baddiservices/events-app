@@ -200,7 +200,7 @@
 <script>
 import Footer from './partials/footer.vue'
 import Sidebar from './partials/sidebar.vue'
-import { isUserLoggedIn } from '../auth'
+import { isUserLoggedIn } from '../services/Auth'
 import { BForm, BFormGroup, BFormInput, BFormSelect, BFormTextarea, BTab, BTable } from 'bootstrap-vue'
 import SecureLS from 'secure-ls'
 import DateRangePicker from 'vue2-daterange-picker'
