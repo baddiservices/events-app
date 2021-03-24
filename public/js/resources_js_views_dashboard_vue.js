@@ -13806,14 +13806,14 @@ __webpack_require__.r(__webpack_exports__);
     selectedTimezone: function selectedTimezone() {
       return this.user.timezone || 'Europe/Paris';
     },
-    rooms: function rooms() {
-      return this.$store.state.rooms;
+    groups: function groups() {
+      return this.$store.state.groups;
     },
-    reservations: function reservations() {
-      return this.$store.state.reservations;
+    events: function events() {
+      return this.$store.state.events;
     },
     validRoomForm: function validRoomForm() {
-      return this.room !== '';
+      return this.group !== '';
     },
     confirmedPassword: function confirmedPassword() {
       if (!this.user.password || this.user.password == '') return true;
@@ -13830,7 +13830,7 @@ __webpack_require__.r(__webpack_exports__);
         value: null,
         text: 'Veuillez sélectionner une chambre'
       }];
-      var parsedRoomsList = this.rooms.map(function (val, index) {
+      var parsedRoomsList = this.groups.map(function (val, index) {
         roomsList.push({
           value: val.id,
           text: val.name
@@ -13849,7 +13849,7 @@ __webpack_require__.r(__webpack_exports__);
       //     this.dateRange.endDate = this.dateRange.endDate.tz(newUser.timezone)
       // }
     },
-    reservations: function reservations(newReservations, oldReservations) {
+    events: function events(newReservations, oldReservations) {
       this.initEvents(newReservations);
     },
     dateRange: function dateRange(newDateRange, oldDateRange) {
@@ -13886,9 +13886,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.submitRoomBtn.setAttribute('disabled', true); // Dispatch API action
 
       this.$store.dispatch('addRoom', {
-        name: this.room
+        name: this.group
       }).then(function (response) {
-        _this2.room = '';
+        _this2.group = '';
 
         _this2.$bvToast.toast(response.message, {
           title: 'C\'est fait!',
@@ -14033,8 +14033,8 @@ __webpack_require__.r(__webpack_exports__);
         _this8.$refs.submitReservationBtn.removeAttribute('disabled');
       });
     },
-    initEvents: function initEvents(reservations) {
-      this.calendarOptions.events = reservations.map(function (val, index) {
+    initEvents: function initEvents(events) {
+      this.calendarOptions.events = events.map(function (val, index) {
         return {
           title: val.name,
           start: val.start_date,
@@ -14057,11 +14057,11 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       var label = null;
       var rates = data.rates.filter(function (val, index) {
-        if (label !== val.room) {
-          label = val.room;
+        if (label !== val.group) {
+          label = val.group;
           var _data = [];
           _data = data.rates.filter(function (item, idx) {
-            if (item.room == label) {
+            if (item.group == label) {
               return item.rate;
             }
           });
@@ -14125,17 +14125,17 @@ __webpack_require__.r(__webpack_exports__);
     // Load time zones
     if (typeof this.timeZones === "undefined" || this.timeZones === null || Object.values(this.timeZones).length === 0) {
       this.loadTimeZones();
-    } // Load rooms
+    } // Load groups
 
 
-    if (typeof this.rooms === "undefined" || this.rooms === null || Object.values(this.rooms).length === 0) {
+    if (typeof this.groups === "undefined" || this.groups === null || Object.values(this.groups).length === 0) {
       this.loadRooms();
-    } // Load reservations
+    } // Load events
 
 
-    if (typeof this.reservations === "undefined" || this.reservations === null || Object.values(this.reservations).length === 0) {
+    if (typeof this.events === "undefined" || this.events === null || Object.values(this.events).length === 0) {
       this.loadReservations();
-    } // Load rate of reservations
+    } // Load rate of events
 
 
     if (typeof this.reservationsRate === "undefined" || this.reservationsRate === null || Object.values(this.reservationsRate).length === 0) {
@@ -14145,7 +14145,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       active: 'dashboard',
-      room: '',
+      group: '',
       roomFields: [{
         key: 'name',
         label: 'Nom',
@@ -14164,7 +14164,7 @@ __webpack_require__.r(__webpack_exports__);
         label: 'Nom',
         sortable: true
       }, {
-        key: 'room.name',
+        key: 'group.name',
         label: 'Chambre',
         sortable: true
       }, {
@@ -53649,7 +53649,7 @@ var render = function() {
                                     [
                                       _c("h2", [
                                         _vm._v(
-                                          _vm._s(_vm.reservations.length || 0) +
+                                          _vm._s(_vm.events.length || 0) +
                                             " Reservations"
                                         )
                                       ]),
@@ -53672,12 +53672,12 @@ var render = function() {
                             "b-tab",
                             {
                               attrs: {
-                                active: _vm.active === "rooms",
+                                active: _vm.active === "groups",
                                 title: "Rooms"
                               },
                               on: {
                                 click: function($event) {
-                                  _vm.active = "rooms"
+                                  _vm.active = "groups"
                                 }
                               }
                             },
@@ -53700,27 +53700,27 @@ var render = function() {
                                             "b-form-group",
                                             {
                                               attrs: {
-                                                id: "room-group",
+                                                id: "group-group",
                                                 label:
                                                   "Numéro ou nom de la chambre:",
-                                                "label-for": "room"
+                                                "label-for": "group"
                                               }
                                             },
                                             [
                                               _c("b-form-input", {
                                                 attrs: {
-                                                  id: "room",
+                                                  id: "group",
                                                   type: "text",
                                                   placeholder:
                                                     "Entrer numéro ou nom",
                                                   required: ""
                                                 },
                                                 model: {
-                                                  value: _vm.room,
+                                                  value: _vm.group,
                                                   callback: function($$v) {
-                                                    _vm.room = $$v
+                                                    _vm.group = $$v
                                                   },
-                                                  expression: "room"
+                                                  expression: "group"
                                                 }
                                               })
                                             ],
@@ -53770,7 +53770,7 @@ var render = function() {
                                         attrs: {
                                           striped: "",
                                           hover: "",
-                                          items: _vm.rooms,
+                                          items: _vm.groups,
                                           fields: _vm.roomFields
                                         }
                                       })
@@ -53850,15 +53850,15 @@ var render = function() {
                                             "b-form-group",
                                             {
                                               attrs: {
-                                                id: "reservation-room-group",
+                                                id: "reservation-group-group",
                                                 label: "Chambre:",
-                                                "label-for": "reservation-room"
+                                                "label-for": "reservation-group"
                                               }
                                             },
                                             [
                                               _c("b-form-select", {
                                                 attrs: {
-                                                  id: "reservation-room",
+                                                  id: "reservation-group",
                                                   options:
                                                     _vm.roomsSelectOptions,
                                                   required: ""
@@ -54009,7 +54009,7 @@ var render = function() {
                                         attrs: {
                                           striped: "",
                                           hover: "",
-                                          items: _vm.reservations,
+                                          items: _vm.events,
                                           fields: _vm.reservationFields
                                         }
                                       })

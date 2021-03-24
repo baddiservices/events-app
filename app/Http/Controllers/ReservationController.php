@@ -35,28 +35,28 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        // Fetch all reservations
-        $reservations = $this->eventService->all();
+        // Fetch all events
+        $events = $this->eventService->all();
 
         return response()->success(
             __('messages.reservations_fetched'),
-            ReservationResource::collection($reservations)
+            ReservationResource::collection($events)
         );
     }
     
     /**
-     * Get rate of all reservations in current year
+     * Get rate of all events in current year
      * 
      * @return \Illuminate\Http\Response
      */
     public function rate()
     {
-        // Fetch all reservations for current year
-        $reservations = $this->eventService->getReservationsByThisYear();
+        // Fetch all events for current year
+        $events = $this->eventService->getReservationsByThisYear();
 
         return response()->success(
             __('messages.reservations_fetched'),
-            $reservations
+            $events
         );
     }
 

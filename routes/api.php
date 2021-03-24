@@ -35,13 +35,13 @@ Route::prefix('v1')->group(function(){
         Route::post('/signout', [AuthController::class, 'signOut']);
         Route::put('/{user}/profile/', [UserController::class, 'updateProfile']);
 
-        // Room routes
-        Route::get('/rooms', [RoomController::class, 'index']);
-        Route::post('/rooms', [RoomController::class, 'store']);
+        // Group routes
+        Route::get('/groups', [RoomController::class, 'index']);
+        Route::post('/groups', [RoomController::class, 'store']);
 
         // Reservation routes
-        Route::get('/reservations', [ReservationController::class, 'index']);
-        Route::get('/reservations/rate', [ReservationController::class, 'rate']);
-        Route::post('/reservations', [ReservationController::class, 'store']);
+        Route::get('/events', [ReservationController::class, 'index']);
+        Route::get('/events/rate', [ReservationController::class, 'rate']);
+        Route::post('/events', [ReservationController::class, 'store']);
     });
 });

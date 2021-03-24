@@ -34,7 +34,7 @@ class EventService
     }
 
     /**
-     * Fetch all reservations
+     * Fetch all events
      * 
      * @return \Illuminate\Support\Collection
      */
@@ -44,14 +44,14 @@ class EventService
     }
     
     /**
-     * Fetch all reservations for current year
+     * Fetch all events for current year
      * 
      * @return array
      */
     public function getReservationsByThisYear() : array
     {
-        // Fetch all reservations for current year
-        $reservations = $this->reservationRepository->getReservationsByThisYear();
+        // Fetch all events for current year
+        $events = $this->reservationRepository->getReservationsByThisYear();
 
         // List of months in current year
         $from = Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s', strtotime('January 1st')));
@@ -65,7 +65,7 @@ class EventService
         $rates= [];
         
 
-        foreach($reservations as $reservation){
+        foreach($events as $reservation){
             foreach($period as $item){
                 $month = Carbon::parse($item)->format('F');
                 if(!in_array($month, $listOfMonths)){
@@ -75,9 +75,9 @@ class EventService
                 if($reservation->start_date->format('F') === $month){
                     $bookedDays = $reservation->end_date->diffInDays($reservation->start_date);
                     $rate = ceil(($bookedDays / cal_days_in_month(CAL_GREGORIAN, $reservation->start_date->format('m'), date('Y'))) * 100);
-                    $rates[] = ['room' => $reservation->room->name, 'rate' => $rate];
+                    $rates[] = ['group' => $reservation->group->name, 'rate' => $rate];
                 }else{
-                    $rates[] = ['room' => $reservation->room->name, 'rate' => 0];
+                    $rates[] = ['group' => $reservation->group->name, 'rate' => 0];
                 }
             }
         }
@@ -101,7 +101,7 @@ class EventService
             $data, 
             [
                 'name'          =>  'required|string',
-                'room_id'       =>  'required|integer|exists:rooms,id',
+                'room_id'       =>  'required|integer|exists:groups,id',
                 'start_date'    =>  'required',
                 'end_date'      =>  'required',
                 'description'   =>  'nullable|string',
@@ -128,7 +128,7 @@ class EventService
         // Store reservation
         $reservation = $this->reservationRepository->create($data);
 
-        return new ReservationResource($reservation->load(['room', 'user']));
+        return new ReservationResource($reservation->load(['group', 'user']));
     }
 
     /**

@@ -47,12 +47,12 @@ class Event extends Model
     }
 
     /**
-     * Get room
+     * Get group
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function room()
+    public function group()
     {
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(Group::class);
     }
 }

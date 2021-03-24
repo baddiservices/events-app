@@ -22,10 +22,14 @@ class CreateEventsTable extends Migration
             $table->dateTime('start_date')->nullable(false);
             $table->dateTime('end_date')->nullable(false);
             $table->text('description')->nullable();
+            $table->string('address')->nullable();
+            $table->boolean('remotely')->default(false);
+            $table->decimal('longitude', 9, 6)->nullable();
+            $table->decimal('latitude', 8, 6)->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreign('room_id')->references('id')->on('rooms')->cascadeOnDelete();
+            $table->foreign('room_id')->references('id')->on('groups')->cascadeOnDelete();
         });
     }
 

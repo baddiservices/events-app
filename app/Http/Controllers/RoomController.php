@@ -11,7 +11,7 @@ use InvalidArgumentException;
 class RoomController extends Controller
 {
     /**
-     * Room service
+     * Group service
      *
      * @var \App\Service\RoomService
      */
@@ -28,23 +28,23 @@ class RoomController extends Controller
     }
 
     /**
-     * Get all rooms
+     * Get all groups
      * 
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // Fetch all rooms
-        $rooms = $this->roomService->all();
+        // Fetch all groups
+        $groups = $this->roomService->all();
 
         return response()->success(
             __('messages.rooms_fetched'),
-            RoomResource::collection($rooms)
+            RoomResource::collection($groups)
         );
     }
 
     /**
-     * Store new room
+     * Store new group
      * 
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         try{
-            // create new room
+            // create new group
             $createdRoom = $this->roomService->create($request->input());
 
             return response()->success(

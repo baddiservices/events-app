@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class RoomService
 {
     /**
-     * Room repository
+     * Group repository
      *
      * @var \App\Repositories\RoomsRepository
      */
@@ -29,7 +29,7 @@ class RoomService
     }
 
     /**
-     * Fetch all rooms
+     * Fetch all groups
      * 
      * @return \Illuminate\Support\Collection
      */
@@ -39,9 +39,9 @@ class RoomService
     }
 
     /**
-     * Create new room
+     * Create new group
      * 
-     * @param array $data Room details
+     * @param array $data Group details
      * @return \App\Http\Resources\RoomResource
      */
     public function create(array $data) : RoomResource
@@ -50,7 +50,7 @@ class RoomService
         $validator = Validator::make(
             $data, 
             [
-                'name'  =>  'required|string|unique:rooms,name',
+                'name'  =>  'required|string|unique:groups,name',
             ],
             [
                 'name.required'  =>  __('messages.room_name'),
@@ -65,12 +65,12 @@ class RoomService
         // Get validated data
         $data = $validator->validated();
 
-        // Store room
-        $room = $this->roomRepository->create([
+        // Store group
+        $group = $this->roomRepository->create([
             'name'          =>  $data['name'],
             'user_id'       =>  Auth::id()
         ]);
 
-        return new RoomResource($room->load('user'));
+        return new RoomResource($group->load('user'));
     }
 }

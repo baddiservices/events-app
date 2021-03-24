@@ -17,17 +17,17 @@ class ReservationsRepository extends AbstractRepository
     protected $model = \App\Models\Event::class;
 
     /**
-     * Fetch all reservations with relationships
+     * Fetch all events with relationships
      * 
      * @return \Illuminate\Support\Collection
      */
     public function allWithRelationships() : Collection
     {
-        return Event::with(['user', 'room'])->where('user_id', Auth::id())->get();
+        return Event::with(['user', 'group'])->where('user_id', Auth::id())->get();
     }
 
     /**
-     * Fetch all reservations for current year
+     * Fetch all events for current year
      * 
      * @return \Illuminate\Support\Collection
      */
@@ -37,16 +37,16 @@ class ReservationsRepository extends AbstractRepository
         $startYear = date('Y-m-d H:i:s', strtotime('January 1st'));
         $endYear = date('Y-m-d H:i:s',strtotime('last day of this month'));;
 
-        return Event::with('room')
+        return Event::with('group')
                     ->whereBetween('start_date', [$startYear, $endYear])
                     ->whereBetween('end_date', [$startYear, $endYear])
                     ->get();
     }
 
     /**
-     * Check room if already booked
+     * Check group if already booked
      * 
-     * @param int $roomId Room Id
+     * @param int $roomId Group Id
      * @param string $startDate Start date
      * @param string $endDate End date
      * @return bool

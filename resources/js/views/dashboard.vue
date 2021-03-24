@@ -11,22 +11,22 @@
                                         <canvas id="chart"></canvas>
                                     </b-col>
                                     <b-col md="12" class="mt-3">
-                                        <h2>{{ reservations.length || 0 }} Reservations</h2>
+                                        <h2>{{ events.length || 0 }} Reservations</h2>
                                         <FullCalendar ref="calendar" :options="calendarOptions"/>
                                     </b-col>
                                 </b-row>
                             </b-tab>
-                            <b-tab @click="active = 'rooms'" :active="active === 'rooms'" title="Rooms">
+                            <b-tab @click="active = 'groups'" :active="active === 'groups'" title="Rooms">
                                 <b-row>
                                     <b-col md="4">
                                         <b-form @submit="addRoom" class="mt-3 mb-3">
                                             <b-form-group
-                                                id="room-group"
+                                                id="group-group"
                                                 label="Numéro ou nom de la chambre:"
-                                                label-for="room">
+                                                label-for="group">
                                                 <b-form-input
-                                                id="room"
-                                                v-model="room"
+                                                id="group"
+                                                v-model="group"
                                                 type="text"
                                                 placeholder="Entrer numéro ou nom"
                                                 required>
@@ -41,7 +41,7 @@
                                         </b-form>
                                     </b-col>
                                     <b-col md="8">
-                                        <b-table class="mt-3" striped hover :items="rooms" :fields="roomFields"></b-table>
+                                        <b-table class="mt-3" striped hover :items="groups" :fields="roomFields"></b-table>
                                     </b-col>
                                 </b-row>
                             </b-tab>
@@ -62,10 +62,10 @@
                                                 </b-form-input>
                                             </b-form-group>
                                             <b-form-group
-                                                id="reservation-room-group"
+                                                id="reservation-group-group"
                                                 label="Chambre:"
-                                                label-for="reservation-room">
-                                                <b-form-select id="reservation-room" v-model="reservation.room_id" :options="roomsSelectOptions" required></b-form-select>
+                                                label-for="reservation-group">
+                                                <b-form-select id="reservation-group" v-model="reservation.room_id" :options="roomsSelectOptions" required></b-form-select>
                                                 </b-form-input>
                                             </b-form-group>
                                             <b-form-group
@@ -103,7 +103,7 @@
                                         </b-form>
                                     </b-col>
                                     <b-col md="8">
-                                        <b-table class="mt-3" striped hover :items="reservations" :fields="reservationFields"></b-table>
+                                        <b-table class="mt-3" striped hover :items="events" :fields="reservationFields"></b-table>
                                     </b-col>
                                 </b-row>
                             </b-tab>
@@ -238,14 +238,14 @@ export default{
         selectedTimezone(){
             return this.user.timezone || 'Europe/Paris'
         },
-        rooms(){
-            return this.$store.state.rooms
+        groups(){
+            return this.$store.state.groups
         },
-        reservations(){
-            return this.$store.state.reservations
+        events(){
+            return this.$store.state.events
         },
         validRoomForm(){
-            return this.room !== '';
+            return this.group !== '';
         },
         confirmedPassword(){
             if(!this.user.password || this.user.password == '')
@@ -264,7 +264,7 @@ export default{
                 { value: null, text: 'Veuillez sélectionner une chambre' }
             ]
             
-            let parsedRoomsList = this.rooms.map((val, index) => {
+            let parsedRoomsList = this.groups.map((val, index) => {
                 roomsList.push({ value: val.id, text: val.name })
             })
 
@@ -284,7 +284,7 @@ export default{
             //     this.dateRange.endDate = this.dateRange.endDate.tz(newUser.timezone)
             // }
         },
-        reservations: function(newReservations, oldReservations){
+        events: function(newReservations, oldReservations){
             this.initEvents(newReservations)
         },
         dateRange: function(newDateRange, oldDateRange){
@@ -321,10 +321,10 @@ export default{
 
             // Dispatch API action
             this.$store.dispatch('addRoom', {
-                    name: this.room,
+                    name: this.group,
                 })
                 .then(response => {
-                    this.room = ''
+                    this.group = ''
 
                     this.$bvToast.toast(response.message, {
                         title: 'C\'est fait!',
@@ -476,8 +476,8 @@ export default{
                     this.$refs.submitReservationBtn.removeAttribute('disabled')
                 })
         },
-        initEvents(reservations){
-            this.calendarOptions.events = reservations.map((val, index) => {
+        initEvents(events){
+            this.calendarOptions.events = events.map((val, index) => {
                 return {
                     title: val.name,
                     start: val.start_date,
@@ -498,12 +498,12 @@ export default{
             let vm = this
             let label = null
             let rates = data.rates.filter(function(val, index){              
-                if(label !== val.room){
-                    label = val.room
+                if(label !== val.group){
+                    label = val.group
                     let _data = []
 
                     _data = data.rates.filter(function(item, idx){
-                        if(item.room == label){
+                        if(item.group == label){
                             return item.rate
                         }
                     })
@@ -567,17 +567,17 @@ export default{
             this.loadTimeZones()
         }
         
-        // Load rooms
-        if(typeof this.rooms === "undefined" || this.rooms === null || Object.values(this.rooms).length === 0){
+        // Load groups
+        if(typeof this.groups === "undefined" || this.groups === null || Object.values(this.groups).length === 0){
             this.loadRooms()
         }
         
-        // Load reservations
-        if(typeof this.reservations === "undefined" || this.reservations === null || Object.values(this.reservations).length === 0){
+        // Load events
+        if(typeof this.events === "undefined" || this.events === null || Object.values(this.events).length === 0){
             this.loadReservations()
         }
         
-        // Load rate of reservations
+        // Load rate of events
         if(typeof this.reservationsRate === "undefined" || this.reservationsRate === null || Object.values(this.reservationsRate).length === 0){
             this.loadReservationsRate()
         }
@@ -585,7 +585,7 @@ export default{
     data(){
         return {
             active: 'dashboard',
-            room: '',
+            group: '',
             roomFields: [
                 {
                     key: 'name',
@@ -610,7 +610,7 @@ export default{
                     sortable: true
                 },
                 {
-                    key: 'room.name',
+                    key: 'group.name',
                     label: 'Chambre',
                     sortable: true
                 },

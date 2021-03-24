@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Room;
+use App\Models\Group;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Torann\LaravelRepository\Repositories\AbstractRepository;
@@ -14,15 +14,15 @@ class RoomsRepository extends AbstractRepository
      *
      * @return string
      */
-    protected $model = \App\Models\Room::class;
+    protected $model = \App\Models\Group::class;
 
     /**
-     * Fetch all rooms with user relationship
+     * Fetch all groups with user relationship
      * 
      * @return \Illuminate\Support\Collection
      */
     public function allWithUser() : Collection
     {
-        return Room::with('user')->where('user_id', Auth::id())->get();
+        return Group::with('user')->where('user_id', Auth::id())->get();
     }
 }

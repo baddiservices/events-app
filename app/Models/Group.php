@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Ryancco\HasUuidRouteKey\HasUuidRouteKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Room extends Model
+class Group extends Model
 {
     use HasFactory, HasUuidRouteKey;
 
@@ -40,11 +40,11 @@ class Room extends Model
     }
 
     /**
-     * Get reservations
+     * Get events
      * 
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
-    public function reservations()
+    public function events()
     {
         return $this->hasMany(Event::class);
     }

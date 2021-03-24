@@ -13,7 +13,7 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
             $table->unsignedBigInteger('user_id');
@@ -31,6 +31,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('groups');
     }
 }

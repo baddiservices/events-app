@@ -10,8 +10,8 @@ Vue.use(Vuex)
 const state = () => ({
     user: getUser(),
     token: null,
-    rooms: [],
-    reservations: [],
+    groups: [],
+    events: [],
     timeZones: [],
 })
 
@@ -19,8 +19,8 @@ const state = () => ({
 const getters = {
     user: state => state.user,
     token: state => state.token,
-    rooms: state => state.rooms,
-    reservations: state => state.reservations,
+    groups: state => state.groups,
+    events: state => state.events,
     timeZones: state => state.timeZones,
 }
 
@@ -32,11 +32,11 @@ const mutations = {
     setToken: (state, token) => {
         state.token = token
     },
-    setRooms: (state, rooms) => {
-        state.rooms = rooms
+    setRooms: (state, groups) => {
+        state.groups = groups
     },
-    setReservations: (state, reservations) => {
-        state.reservations = reservations
+    setReservations: (state, events) => {
+        state.events = events
     },
     setTimeZones: (state, timeZones) => {
         state.timeZones = timeZones
@@ -110,7 +110,7 @@ const actions = {
     },
     addRoom({ commit, state, dispatch}, data){
         return new Promise((resolve, reject) => {
-            api.post("v1/rooms", data)
+            api.post("v1/groups", data)
             .then(response => {
                 // Dispatch action
                 dispatch('fetchRooms')
@@ -122,7 +122,7 @@ const actions = {
     },
     bookRoom({ commit, state, dispatch}, data){
         return new Promise((resolve, reject) => {
-            api.post("v1/reservations", data)
+            api.post("v1/events", data)
             .then(response => {
                 // Dispatch action
                 dispatch('fetchReservations')
@@ -134,7 +134,7 @@ const actions = {
     },
     fetchRooms({ commit, state}, data){
         return new Promise((resolve, reject) => {
-            api.get("v1/rooms", data)
+            api.get("v1/groups", data)
             .then(response => {
                 // Commit state
                 commit('setRooms', response.data.content)
@@ -146,7 +146,7 @@ const actions = {
     },
     fetchReservations({ commit, state}, data){
         return new Promise((resolve, reject) => {
-            api.get("v1/reservations", data)
+            api.get("v1/events", data)
             .then(response => {
                 // Commit state
                 commit('setReservations', response.data.content)
@@ -158,7 +158,7 @@ const actions = {
     },
     fetchReservationsRate({ commit, state}, data){
         return new Promise((resolve, reject) => {
-            api.get("v1/reservations/rate", data)
+            api.get("v1/events/rate", data)
             .then(response => {
                 resolve(response.data)
             })

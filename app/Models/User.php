@@ -62,21 +62,21 @@ class User extends Authenticatable
     }
 
     /**
-     * Get rooms
+     * Get groups
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function rooms()
+    public function groups()
     {
-        return $this->hasMany(Room::class);
+        return $this->hasMany(Group::class);
     }
 
     /**
-     * Get reservations
+     * Get events
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function reservations()
+    public function events()
     {
         return $this->hasMany(Event::class);
     }

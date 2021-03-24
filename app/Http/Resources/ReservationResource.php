@@ -23,7 +23,7 @@ class ReservationResource extends JsonResource
             'start_date'        =>  Carbon::parse($this->start_date)->setTimezone(Auth::user()->timezone ?? config('app.timezone'))->format('Y-m-d H:i:s'),
             'end_date'          =>  Carbon::parse($this->end_date)->setTimezone(Auth::user()->timezone ?? config('app.timezone'))->format('Y-m-d H:i:s'),
             'user'              =>  $this->user ?? null,
-            'room'              =>  $this->room ?? null,
+            'group'              =>  $this->group ?? null,
             'booking'           =>  Carbon::parse($this->start_date)->format('H:i d/m/Y') . ' > ' . Carbon::parse($this->end_date)->format('H:i d/m/Y'),
             'updated_at'        =>  Carbon::parse($this->updated_at)->format('H:i d/m/Y'),
             'created_at'        =>  Carbon::parse($this->created_at)->format('H:i d/m/Y'),
