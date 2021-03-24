@@ -9,7 +9,7 @@ use App\Services\EventService;
 use App\Http\Resources\ReservationResource;
 use App\Http\Resources\ReservationCalendarResource;
 
-class ReservationController extends Controller
+class EventController extends Controller
 {
     /**
      * Reservation service

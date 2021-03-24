@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +36,16 @@ Route::prefix('v1')->group(function(){
         Route::put('/{user}/profile/', [UserController::class, 'updateProfile']);
 
         // Group routes
-        Route::get('/groups', [RoomController::class, 'index']);
-        Route::post('/groups', [RoomController::class, 'store']);
+        Route::prefix('groups')->group(function(){
+            Route::get('/', [GroupController::class, 'index']);
+            Route::post('/', [GroupController::class, 'store']);
+        });
 
-        // Reservation routes
-        Route::get('/events', [ReservationController::class, 'index']);
-        Route::get('/events/rate', [ReservationController::class, 'rate']);
-        Route::post('/events', [ReservationController::class, 'store']);
+        // Event routes
+        Route::prefix('events')->group(function(){
+            Route::get('/', [EventController::class, 'index']);
+            Route::get('/rate', [EventController::class, 'rate']);
+            Route::post('/', [EventController::class, 'store']);
+        });
     });
 });

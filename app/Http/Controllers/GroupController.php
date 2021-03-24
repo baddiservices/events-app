@@ -8,23 +8,23 @@ use Illuminate\Http\Request;
 use App\Services\RoomService;
 use InvalidArgumentException;
 
-class RoomController extends Controller
+class GroupController extends Controller
 {
     /**
      * Group service
      *
      * @var \App\Service\RoomService
      */
-    protected $roomService;
+    protected $groupService;
 
     /**
      * Constructor
      *
-     * @param \App\Service\RoomService $roomService
+     * @param \App\Service\RoomService $groupService
      */
-    public function __construct(RoomService $roomService)
+    public function __construct(RoomService $groupService)
     {
-        $this->roomService = $roomService;
+        $this->groupService = $groupService;
     }
 
     /**
@@ -35,10 +35,10 @@ class RoomController extends Controller
     public function index()
     {
         // Fetch all groups
-        $groups = $this->roomService->all();
+        $groups = $this->groupService->all();
 
         return response()->success(
-            __('messages.rooms_fetched'),
+            __('messages.groups_fetched'),
             RoomResource::collection($groups)
         );
     }
@@ -53,10 +53,10 @@ class RoomController extends Controller
     {
         try{
             // create new group
-            $createdRoom = $this->roomService->create($request->input());
+            $createdRoom = $this->groupService->create($request->input());
 
             return response()->success(
-                __('messages.room_created'),
+                __('messages.group_created'),
                 $createdRoom,
                 201
             );
