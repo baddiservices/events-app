@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
-use App\Services\ReservationService;
+use App\Services\EventService;
 use App\Http\Resources\ReservationResource;
 use App\Http\Resources\ReservationCalendarResource;
 
@@ -14,18 +14,18 @@ class ReservationController extends Controller
     /**
      * Reservation service
      *
-     * @var \App\Service\ReservationService
+     * @var \App\Service\EventService
      */
-    protected $reservationService;
+    protected $eventService;
 
     /**
      * Constructor
      *
-     * @param \App\Service\ReservationService $reservationService
+     * @param \App\Service\EventService $eventService
      */
-    public function __construct(ReservationService $reservationService)
+    public function __construct(EventService $eventService)
     {
-        $this->reservationService = $reservationService;
+        $this->eventService = $eventService;
     }
 
     /**
@@ -36,7 +36,7 @@ class ReservationController extends Controller
     public function index()
     {
         // Fetch all reservations
-        $reservations = $this->reservationService->all();
+        $reservations = $this->eventService->all();
 
         return response()->success(
             __('messages.reservations_fetched'),
@@ -52,7 +52,7 @@ class ReservationController extends Controller
     public function rate()
     {
         // Fetch all reservations for current year
-        $reservations = $this->reservationService->getReservationsByThisYear();
+        $reservations = $this->eventService->getReservationsByThisYear();
 
         return response()->success(
             __('messages.reservations_fetched'),
@@ -70,7 +70,7 @@ class ReservationController extends Controller
     {
         try{
             // create new reservation
-            $createdReservation = $this->reservationService->create($request->input());
+            $createdReservation = $this->eventService->create($request->input());
 
             return response()->success(
                 __('messages.reservation_created'),

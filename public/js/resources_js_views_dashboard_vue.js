@@ -13550,19 +13550,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_footer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/footer.vue */ "./resources/js/views/partials/footer.vue");
 /* harmony import */ var _partials_sidebar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/sidebar.vue */ "./resources/js/views/partials/sidebar.vue");
 /* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../auth */ "./resources/js/auth.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
-/* harmony import */ var secure_ls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! secure-ls */ "./node_modules/secure-ls/dist/secure-ls.js");
-/* harmony import */ var secure_ls__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(secure_ls__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-daterange-picker */ "./node_modules/vue2-daterange-picker/dist/vue2-daterange-picker.umd.min.js");
-/* harmony import */ var vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fullcalendar/vue */ "./node_modules/@fullcalendar/vue/dist/main.js");
-/* harmony import */ var _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fullcalendar/daygrid */ "./node_modules/@fullcalendar/daygrid/main.js");
-/* harmony import */ var _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fullcalendar/interaction */ "./node_modules/@fullcalendar/interaction/main.js");
-/* harmony import */ var _fullcalendar_core_locales_fr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fullcalendar/core/locales/fr */ "./node_modules/@fullcalendar/core/locales/fr.js");
-/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
-/* harmony import */ var vue2_daterange_picker_dist_vue2_daterange_picker_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue2-daterange-picker/dist/vue2-daterange-picker.css */ "./node_modules/vue2-daterange-picker/dist/vue2-daterange-picker.css");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form/form.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form-group/form-group.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form-input/form-input.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form-select/form-select.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form-textarea/form-textarea.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/tabs/tab.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/table/table.js");
+/* harmony import */ var secure_ls__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! secure-ls */ "./node_modules/secure-ls/dist/secure-ls.js");
+/* harmony import */ var secure_ls__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(secure_ls__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-daterange-picker */ "./node_modules/vue2-daterange-picker/dist/vue2-daterange-picker.umd.min.js");
+/* harmony import */ var vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fullcalendar/vue */ "./node_modules/@fullcalendar/vue/dist/main.js");
+/* harmony import */ var _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fullcalendar/daygrid */ "./node_modules/@fullcalendar/daygrid/main.js");
+/* harmony import */ var _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fullcalendar/interaction */ "./node_modules/@fullcalendar/interaction/main.js");
+/* harmony import */ var _fullcalendar_core_locales_fr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fullcalendar/core/locales/fr */ "./node_modules/@fullcalendar/core/locales/fr.js");
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+/* harmony import */ var vue2_daterange_picker_dist_vue2_daterange_picker_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue2-daterange-picker/dist/vue2-daterange-picker.css */ "./node_modules/vue2-daterange-picker/dist/vue2-daterange-picker.css");
 //
 //
 //
@@ -13780,15 +13786,15 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Footer: _partials_footer_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     Sidebar: _partials_sidebar_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    BForm: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BForm,
-    BFormGroup: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BFormGroup,
-    BFormInput: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BFormInput,
-    BFormSelect: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BFormSelect,
-    BFormTextarea: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BFormTextarea,
-    BTab: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BTab,
-    BTable: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BTable,
-    DateRangePicker: (vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_5___default()),
-    FullCalendar: _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_7__.default
+    BForm: bootstrap_vue__WEBPACK_IMPORTED_MODULE_12__.BForm,
+    BFormGroup: bootstrap_vue__WEBPACK_IMPORTED_MODULE_13__.BFormGroup,
+    BFormInput: bootstrap_vue__WEBPACK_IMPORTED_MODULE_14__.BFormInput,
+    BFormSelect: bootstrap_vue__WEBPACK_IMPORTED_MODULE_15__.BFormSelect,
+    BFormTextarea: bootstrap_vue__WEBPACK_IMPORTED_MODULE_16__.BFormTextarea,
+    BTab: bootstrap_vue__WEBPACK_IMPORTED_MODULE_17__.BTab,
+    BTable: bootstrap_vue__WEBPACK_IMPORTED_MODULE_18__.BTable,
+    DateRangePicker: (vue2_daterange_picker__WEBPACK_IMPORTED_MODULE_4___default()),
+    FullCalendar: _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_6__.default
   },
   computed: {
     user: function user() {
@@ -13858,7 +13864,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$store.dispatch('signOut').then(function (response) {
-        var ls = new (secure_ls__WEBPACK_IMPORTED_MODULE_4___default())();
+        var ls = new (secure_ls__WEBPACK_IMPORTED_MODULE_3___default())();
         ls.remove('user');
         ls.remove('token');
 
@@ -13974,7 +13980,7 @@ __webpack_require__.r(__webpack_exports__);
         timezone: this.selectedTimezone
       }).then(function (response) {
         // Update local storage
-        var ls = new (secure_ls__WEBPACK_IMPORTED_MODULE_4___default())();
+        var ls = new (secure_ls__WEBPACK_IMPORTED_MODULE_3___default())();
         ls.set('user', response.content);
 
         _this7.$bvToast.toast(response.message, {
@@ -14006,7 +14012,7 @@ __webpack_require__.r(__webpack_exports__);
           name: '',
           description: '',
           room_id: null,
-          start_date: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().format('DD/MM/yyyy HH:mm'),
+          start_date: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().format('DD/MM/yyyy HH:mm'),
           end_date: null
         };
 
@@ -14175,7 +14181,7 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         description: '',
         room_id: null,
-        start_date: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().format('DD/MM/yyyy HH:mm'),
+        start_date: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().format('DD/MM/yyyy HH:mm'),
         end_date: null
       },
       disabledDates: {
@@ -14197,9 +14203,9 @@ __webpack_require__.r(__webpack_exports__);
         endDate: null
       },
       calendarOptions: {
-        plugins: [_fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_8__.default, _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_9__.default],
+        plugins: [_fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_7__.default, _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_8__.default],
         initialView: 'dayGridMonth',
-        locale: _fullcalendar_core_locales_fr__WEBPACK_IMPORTED_MODULE_10__.default,
+        locale: _fullcalendar_core_locales_fr__WEBPACK_IMPORTED_MODULE_9__.default,
         timeZone: 'local',
         selectable: true,
         events: []

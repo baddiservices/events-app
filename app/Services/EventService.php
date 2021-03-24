@@ -2,18 +2,19 @@
 
 namespace App\Services;
 
+use Exception;
 use DatePeriod;
 use DateInterval;
 use Carbon\Carbon;
+use App\Models\Event;
 use InvalidArgumentException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\ReservationResource;
 use App\Repositories\ReservationsRepository;
-use Exception;
 
-class ReservationService
+class EventService
 {
     /**
      * Reservation repository
@@ -128,5 +129,17 @@ class ReservationService
         $reservation = $this->reservationRepository->create($data);
 
         return new ReservationResource($reservation->load(['room', 'user']));
+    }
+
+    /**
+     * Generate QR Code for an event
+     * 
+     * @param \App\Models\Event $event Event entity
+     * @return void
+     * @throws \Exception
+     */
+    public function generateQRCode(Event $event): void
+    {
+        // TODO: Generate QR code using endroid/qr-code package
     }
 }
