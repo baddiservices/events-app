@@ -59,13 +59,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var secure_ls__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! secure-ls */ "./node_modules/secure-ls/dist/secure-ls.js");
 /* harmony import */ var secure_ls__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(secure_ls__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/card/card.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form/form.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form-group/form-group.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/form-input/form-input.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/components/link/link.js");
-/* harmony import */ var _partials_footer_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/footer.vue */ "./resources/js/views/partials/footer.vue");
-/* harmony import */ var _partials_sidebar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/sidebar.vue */ "./resources/js/views/partials/sidebar.vue");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
+/* harmony import */ var _partials_footer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/footer.vue */ "./resources/js/views/partials/footer.vue");
+/* harmony import */ var _partials_sidebar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/sidebar.vue */ "./resources/js/views/partials/sidebar.vue");
 //
 //
 //
@@ -131,13 +127,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    BCard: bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__.BCard,
-    BForm: bootstrap_vue__WEBPACK_IMPORTED_MODULE_4__.BForm,
-    BFormGroup: bootstrap_vue__WEBPACK_IMPORTED_MODULE_5__.BFormGroup,
-    BFormInput: bootstrap_vue__WEBPACK_IMPORTED_MODULE_6__.BFormInput,
-    BLink: bootstrap_vue__WEBPACK_IMPORTED_MODULE_7__.BLink,
-    Footer: _partials_footer_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    Sidebar: _partials_sidebar_vue__WEBPACK_IMPORTED_MODULE_2__.default
+    BCard: bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__.BCard,
+    BForm: bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__.BForm,
+    BFormGroup: bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__.BFormGroup,
+    BFormInput: bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__.BFormInput,
+    BLink: bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__.BLink,
+    Footer: _partials_footer_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+    Sidebar: _partials_sidebar_vue__WEBPACK_IMPORTED_MODULE_3__.default
   },
   computed: {
     validForm: function validForm() {
